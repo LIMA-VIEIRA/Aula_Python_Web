@@ -7,6 +7,15 @@
     <body>
         <h1> Meu Blog </h1>
         <nav>
+            <h1>Meu Blog</h1>
+            {%if current_user.is_authenticated%}
+                <li><span>{{'current_user.username'}}</span></li>
+                <li><a href="{{urI_for('logaut')}}"></a>Log Out</a></li>
+            {%else%}
+            <li><span>{{'current_user.register'}}</span></li>
+            <li><a href="{{urI_for('login')}}"></a>Log In</a></lI>
+            {%endif%}
+
         </nav>
         <section class="content">
             {% block content %}
